@@ -1,0 +1,11 @@
+*.swp
+.*.swp
+
+.DS_Store
+*~
+.project
+.settings
+
+.idea
+
+ai

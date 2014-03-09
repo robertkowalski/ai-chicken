@@ -2,18 +2,12 @@
 
 (require-extension srfi-19-core)
 
-(use openssl http-client json vector-lib alist-lib list-utils rfc3339)
+(use openssl http-client json rfc3339)
 
 (define (get-user-repo-url-part)
   (let ((x (string-split (get-user-repo-combo) "/")))
     (string-append "+user:"
       (string-append (car x) (string-append "+repo:" (second x))))))
-
-
-(define (get-time-two-weeks-ago)
-  (rfc3339->string
-    (seconds->rfc3339
-      (- (current-seconds) (* 60 60 24 15)))))
 
 
 (define (get-github-url)

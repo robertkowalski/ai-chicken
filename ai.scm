@@ -12,13 +12,15 @@
 
 (define (get-github-url)
   (string-append "https://api.github.com/search/issues?q=commenter:"
-    (string-append "robertkowalski"
+    (string-append (get-env-username)
       (string-append "+state:open" (get-user-repo-url-part)))))
 
 
 (define (get-user-repo-combo)
   (car (command-line-arguments)))
 
+(define (get-env-username)
+  (cdr (assoc "AI_GITHUB_USERNAME"  (get-environment-variables))))
 
 ; needed to filter the repos that do contain the same chars in the name,
 ; but are not the same
